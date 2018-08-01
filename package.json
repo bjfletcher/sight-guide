@@ -12,6 +12,7 @@
     "start": "react-native start --port 8082",
     "android": "react-native run-android",
     "ios": "react-native run-ios --device --port 8082",
+    "simulator": "react-native run-ios --port 8082",
     "test": "jest"
   },
   "jest": {

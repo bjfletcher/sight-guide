@@ -1,7 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+	CameraRoll,
+	StyleSheet,
+	Text,
+	View
+} from 'react-native';
 
 export default class App extends React.Component {
+	constructor(props, context) {
+		super(props, context);
+
+		CameraRoll.getPhotos({
+			first: 20,
+			assetType: 'Photos'
+		}).then((r) => {
+			this.setState({ photos: r.edges });
+		}).catch((err) => {
+			// FIXME: error handling
+		});
+	}
+
   render() {
     return (
       <View style={styles.container}>
